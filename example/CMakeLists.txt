@@ -1,0 +1,17 @@
+if(WIN32)
+	set(PLATFORM_LIBS ws2_32 advapi32)
+else()
+	set(PLATFORM_LIBS pthread)
+endif()
+
+if(BUILD_STATIC)
+	add_executable(example_zet139_static example_zet139.c)
+	target_include_directories(example_zet139_static PRIVATE ../include)
+	target_link_libraries(example_zet139_static PRIVATE zet139_static ${PLATFORM_LIBS})
+endif()
+
+if(BUILD_SHARED)
+	add_executable(example_zet139_shared example_zet139.c)
+	target_include_directories(example_zet139_shared PRIVATE ../include)
+	target_link_libraries(example_zet139_shared PRIVATE zet139_shared ${PLATFORM_LIBS})
+endif()

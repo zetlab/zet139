@@ -1,0 +1,6 @@
+LIBRARY "zet139"
+EXPORTS
+  zet139_connect
+  zet139_disconnect
+  zet139_get_state
+  zet139_channel_get_data
